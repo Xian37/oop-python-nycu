@@ -5,6 +5,9 @@ def roll_die():
     return random.choice([1, 2, 3, 4, 5, 6])
 
 def run_sim(goal, num_trials, txt):
+    """
+    Simulates rolling a die multiple times to estimate the probability of getting a specific sequence. And prints the actual and estimated probabilities of achieving the target sequence.
+    """
     total = 0
     for i in range(num_trials):
         result = ''
@@ -19,6 +22,9 @@ def run_sim(goal, num_trials, txt):
           round(est_probability, 8))
 
 def same_date(num_people, num_same):
+    """
+    Checks if there are people sharing the same birthdate among a group of people. Returns True if there are 'num_same' people sharing the same birthdate, False otherwise.
+    """
     possible_dates = range(366)
     # possible_dates = 4*list(range(0, 57)) + [58]\
     #                 + 4*list(range(59, 366))\
@@ -30,6 +36,9 @@ def same_date(num_people, num_same):
     return max(birthdays) >= num_same
 
 def birthday_prob(num_people, num_same, num_trials):
+    """
+     Estimates the probability of at least 'num_same' people sharing the same birthdate in a group. And returns the estimated probability of 'num_same' people sharing the same birthdate.
+    """
     num_hits = 0
     for t in range(num_trials):
         if same_date(num_people, num_same):
